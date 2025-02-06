@@ -1,4 +1,24 @@
 class ApplicationController < ActionController::Base
-  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
-  allow_browser versions: :modern
+  include Pundit::Authorization
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  http_basic_authenticate_with name: 'test',
+    password: 'test',
+    if: :basic_auth_enabled?
+
+  protected
+
+  def active_admin_controller?
+    is_a?(ActiveAdmin::BaseController)
+  end
+
+  def basic_auth_enabled?
+    Rails.env.in?(%w[production staging development]) && active_admin_controller?
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:full_name, :phone_number])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:full_name, :phone_number])
+  end
 end
