@@ -5,16 +5,16 @@ Rails.application.routes.draw do
 
   get "up" => "rails/health#show", as: :rails_health_check
 
-  namespace :main, path: '/' do
+  namespace :main, path: "/" do
     resource :dashboard, only: :show
-    resources :products, only: [:show]
+    resources :products, only: [ :show ]
   end
 
-  root to: 'main/dashboards#index'
-  get 'catalog' => 'main/dashboards#catalog'
-  get 'contact' => 'main/dashboards#contact'
+  root to: "main/dashboards#index"
+  get "catalog" => "main/dashboards#catalog"
+  get "contact" => "main/dashboards#contact"
 
-  resources :categories, only: [:show] do
-    resources :products, only: [:index]
+  resources :categories, only: [ :show ] do
+    resources :products, only: [ :index ]
   end
 end

@@ -11,7 +11,7 @@ ActiveAdmin.register Category do
       if category.logo.attached?
         image_tag url_for(category.logo.variant(:thumb))
       else
-        I18n.t('admin.categories.not_uploaded')
+        I18n.t("admin.categories.not_uploaded")
       end
     end
     column :created_at
@@ -37,7 +37,7 @@ ActiveAdmin.register Category do
       f.input :logo, as: :file
       if f.object.logo.attached?
         div do
-          image_tag url_for(f.object.logo), style: 'max-width: 200px;'
+          image_tag url_for(f.object.logo), style: "max-width: 200px;"
         end
       end
     end
