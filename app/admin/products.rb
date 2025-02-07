@@ -48,7 +48,15 @@ ActiveAdmin.register Product do
       f.input :price
       f.input :is_popular
       f.input :is_new_arrival
-      f.input :images, as: :file, input_html: { multiple: true }
+      if f.object.images.any?
+        f.inputs 'Images' do
+          f.object.images.each do |image|
+            div do
+              image_tag url_for(image.variant(:thumb)), input_html: { multiple: true }
+            end
+          end
+        end
+      end
     end
 
     f.actions
