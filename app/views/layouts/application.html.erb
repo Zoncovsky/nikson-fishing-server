@@ -14,19 +14,18 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-<body class="d-flex flex-column min-vh-100">
-  <main class="flex-grow-1">
-    <div>
-      <%= render 'layouts/application/header' %>
+  <body class="d-flex flex-column min-vh-100" style="background-image: url('<%= asset_path('background-body.jpg') %>')">
+    <main class="flex-grow-1">
       <div>
-        <%= render 'layouts/shared/flash_messages' %>
-        <%= yield %>
+        <%= render 'layouts/application/header' %>
+        <div>
+          <%= render 'layouts/shared/flash_messages' %>
+          <%= yield %>
+        </div>
       </div>
-    </div>
-  </main>
-  <footer class="py-3 mt-auto bg-light border-top">
-    <p class="text-center text-body-secondary">© <%= Time.current.year %> Nikson Fishing Shop</p>
-  </footer>
-</body>
-
+    </main>
+    <footer class="py-3 mt-auto bg-light border-top">
+      <p class="text-center text-body-secondary">© <%= Time.current.year %> Nikson Fishing Shop</p>
+    </footer>
+  </body>
 </html>
