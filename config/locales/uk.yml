@@ -1,0 +1,110 @@
+uk:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            full_name:
+              blank: "Поле 'Ім'я та Призвище' не може бути порожнім"
+            phone_number:
+              blank: "Поле 'Номер телефону' не може бути порожнім"
+              invalid: "Невірний формат номеру телефону"
+            password:
+              too_short: "Пароль занадто короткий (мінімум %{count} символів)"
+              invalid_format: "Пароль має містити хоча б одну велику літеру та не повинен містити пробілів"
+            password_confirmation:
+              confirmation: "Паролі не співпадають"
+              too_short: "Пароль занадто короткий (мінімум %{count} символів)"
+              invalid_format: "Пароль має містити хоча б одну велику літеру та не повинен містити пробілів"
+      messages:
+        blank: "Не може бути порожнім"
+        too_short: "занадто короткий (мінімум %{count} символів)"
+        invalid: "невірний формат"
+  date:
+    month_names: [~, січень, лютий, березень, квітень, травень, червень, липень, серпень, вересень, жовтень, листопад, грудень]
+  time:
+    formats:
+      long: "%d %B %Y, %H:%M"
+  header:
+    tabs:
+      catalog: 'Каталог'
+      contacts: 'Контакти'
+      log_in: 'Увійти'
+      log_out: 'Вийти'
+      sign_up: 'Зареєструватися'
+    mobile:
+      menu: 'Відкрити головне меню'
+  log_in_page:
+    email: 'Електронна пошта'
+    password: 'Пароль'
+    title: 'Увійти до свого акаунта'
+    log_in_button: 'Увійти'
+    dont_have_account: 'Не маєте акаунта?'
+    forgot_password: 'Забули пароль?'
+  sign_up_page:
+    full_name: "Ім'я та прізвище"
+    phone_number: 'Номер телефону'
+    email: 'Електронна пошта'
+    password: 'Пароль'
+    password_confirmation: 'Підтвердження пароля'
+    title: 'Зареєструватися'
+    already_have_account: 'Вже маєте акаунт?'
+    lenght_password: 'мінімальна кількість символів'
+    did_not_receive: 'Не отримали лист з підтвердженням?'
+  reset_password_page:
+    email: 'Електронна пошта'
+    title: 'Скинути пароль'
+    reset_password_button: 'Видправити лист для скидання пароля'
+    change_password: 'Змінити пароль'
+    new_password: 'Новий пароль'
+    password_confirmation: 'Підтвердження пароля'
+    lenght_password: 'мінімальна кількість символів'
+    change_button: 'Змінити пароль'
+  confirm_page:
+    email: 'Електронна пошта'
+    title: 'Відправити лист з підтвердженням акаунту'
+    confirm_button: 'Відправити лист з підтвердженням акаунту'
+  main_page:
+    welcome: 'Вітаємо!'
+    title: 'У Nikson fishing shop'
+    button_catalog: 'Перейти до каталогу'
+    popular_item: 'Популярні товари'
+    new_products: 'Нові товари'
+    currency: 'грн'
+    view_details: 'Детальніше'
+  product_page:
+    category: 'Категорії'
+    reset_filters: 'Скинути фільтри'
+    price: 'Ціна:'
+    description: 'Опис:'
+    weight: 'Вага:'
+    button_back: 'Повернутися до каталогу'
+  contact_page:
+    title: 'Контакти'
+  admin:
+    users:
+      user_details: 'Деталі користувача'
+    not_uploaded: 'Не завантажено'
+  ransack:
+    search: "Пошук"
+    predicates:
+      eq: "дорівнює"
+      not_eq: "не дорівнює"
+      matches: "містить"
+      does_not_match: "не містить"
+      lt: "менше ніж"
+      gt: "більше ніж"
+      lteq: "менше або дорівнює"
+      gteq: "більше або дорівнює"
+      in: "входить до"
+      not_in: "не входить до"
+      cont: "містить"
+      not_cont: "не містить"
+      start: "починається з"
+      end: "закінчується на"
+      true: "так"
+      false: "ні"
+      present: "присутній"
+      blank: "відсутній"
+      null: "нуль"
+      not_null: "не нуль"

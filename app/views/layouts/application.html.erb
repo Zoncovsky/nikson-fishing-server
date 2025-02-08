@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Nikson Fishing Server" %></title>
+    <title><%= content_for(:title) || "Nikson Fishing Shop" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -10,20 +10,22 @@
 
     <%= yield :head %>
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
-
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column min-vh-100" style="background-image: url('<%= asset_path('background-body.jpg') %>')">
+    <main class="flex-grow-1">
+      <div>
+        <%= render 'layouts/application/header' %>
+        <div>
+          <%= render 'layouts/shared/flash_messages' %>
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+    <footer class="py-3 mt-auto bg-light border-top">
+      <p class="text-center text-body-secondary">© <%= Time.current.year %> Nikson Fishing Shop</p>
+    </footer>
   </body>
 </html>

@@ -556,6 +556,7 @@ DEPENDENCIES
   rails (~> 8.0.1)
   rails-erd
   rails_live_reload
+  rexml
   rspec-rails
   rubocop-rails-omakase
   rubocop-rspec
