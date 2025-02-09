@@ -28,7 +28,7 @@ ActiveAdmin.register User do
   end
 
   form do |f|
-    f.inputs I18n.t("admin.users.user_details") do
+    f.inputs I18n.t('admin.users.user_details') do
       f.input :first_name
       f.input :last_name
       f.input :phone_number

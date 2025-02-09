@@ -13,4 +13,9 @@ RSpec.describe Product, type: :model do
     it { is_expected.to have_db_column(:created_at).of_type(:datetime) }
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
   end
+
+  describe 'Associations' do
+    it { is_expected.to belong_to(:category) }
+    it { is_expected.to have_many(:order_products).dependent(:destroy) }
+  end
 end

@@ -49,7 +49,7 @@ ActiveAdmin.register Product do
       f.input :is_popular
       f.input :is_new_arrival
       if f.object.images.any?
-        f.inputs "Images" do
+        f.inputs 'Images' do
           f.object.images.each do |image|
             div do
               image_tag url_for(image.variant(:thumb))
