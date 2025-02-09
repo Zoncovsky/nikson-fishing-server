@@ -1,16 +1,16 @@
 <div class="container d-flex justify-content-center align-items-center vh-100">
-  <div class="contact-card bg-white text-center p-3 rounded w-100 shadow p-3 mb-5 bg-body-tertiary rounded">
+  <div class="contact-card bg-white text-center p-3 rounded w-100 shadow p-3 mb-5 bg-body-tertiary rounded" data-controller="products" data-products-product-value="">
     <h2 class="mb-4"><%= I18n.t('contact_page.title') %></h2>
 
     <div class="mb-4">
-      <h5>Телефони:</h5>
+      <h5><%= t('contact_page.phone_number') %></h5>
       <p class="mb-1">
         <a class="text-decoration-none" href="tel:+380660166033">+380 66 016 60 33</a>
       </p>
     </div>
 
     <div class="mb-4">
-      <h5>Соціальні мережі:</h5>
+      <h5><%= t('contact_page.social_media') %></h5>
       <p class="mb-2">
         <a href="https://t.me/Nikson_sol94" target="_blank" class="text-decoration-none">
           <i class="bi bi-telegram"></i> Telegram

@@ -1,0 +1,27 @@
+<div class="container bg-white text-center p-3 rounded w-100 shadow p-3 mt-5 bg-body-tertiary rounded">
+  <h1 class="bg-light text-center"><%= t('cart.title')%></h1>
+  <div id="errorContainer"></div>
+  <div data-controller="cart" class="table-responsive small">
+    <table class="table table-striped" data-controller="products" data-products-product-value="">
+      <thead>
+        <tr>
+          <th scope="col"><%= t('cart.items') %></th>
+          <th scope="col"><%= t('cart.price') %></th>
+          <th scope="col"><%= t('cart.quantity') %></th>
+          <th scope="col"><%= t('cart.actions') %></th>
+        </tr>
+      </thead>
+      <tbody id="cartItems">
+      </tbody>
+    </table>
+    <div class="m-4 fw-bold fs-3" id="total" data-total-text="<%= I18n.t('cart.total') %>" data-currency-text="<%= I18n.t('main_page.currency') %>"></div>
+    <button type="button" class="btn btn-primary" data-action="click->cart#checkout">
+      <i class="bi bi-credit-card"></i>
+      <%= t('cart.buy_now')%>
+    </button>
+    <button type="button" class="btn btn-danger" data-action="click->cart#clear">
+      <i class="bi bi-trash"></i>
+      <%= t('cart.clear_cart')%>
+    </button>
+  </div>
+</div>
