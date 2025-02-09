@@ -2,13 +2,15 @@ ActiveAdmin.register User do
   actions :index, :show, :destroy
 
   filter :email
-  filter :full_name
+  filter :first_name
+  filter :last_name
   filter :phone_number
 
   index do
     selectable_column
     id_column
-    column :full_name
+    column :first_name
+    column :last_name
     column :phone_number
     column :email
     column :created_at
@@ -17,7 +19,8 @@ ActiveAdmin.register User do
 
   show do
     attributes_table do
-      row :full_name
+      row :first_name
+      row :last_name
       row :phone_number
       row :email
       row :created_at
@@ -26,7 +29,8 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs I18n.t("admin.users.user_details") do
-      f.input :full_name
+      f.input :first_name
+      f.input :last_name
       f.input :phone_number
       f.input :email
     end

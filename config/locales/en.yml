@@ -16,7 +16,8 @@ en:
     dont_have_account: "Don't have an account?"
     forgot_password: 'Forgot your password?'
   sign_up_page:
-    full_name: 'Full name'
+    first_name: 'Full name'
+    last_name: 'Last name'
     phone_number: 'Phone number'
     email: 'Email'
     password: 'Password'

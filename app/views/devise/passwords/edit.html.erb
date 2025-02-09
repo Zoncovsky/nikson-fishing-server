@@ -1,0 +1,22 @@
+<div class="container bg-light p-5 mt-5 rounded-3 shadow">
+  <h1 class="h3 mb-3 fw-normal text-center"><%= t('reset_password_page.change_password') %></h1>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="form-floating">
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "floatingPassword", placeholder: "Password" %>
+      <%= f.label :password, for: "floatingPassword" %><br />
+    </div>
+
+    <div class="form-floating">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "floatingPassword", placeholder: "Password" %>
+      <%= f.label :password_confirmation, for: "floatingPassword" %><br />
+    </div>
+
+    <%= f.submit t('reset_password_page.change_password'), class: "btn btn-primary w-100 py-2" %>
+
+    <%= render "devise/shared/links" %>
+  <% end %>
+</div>
