@@ -82,8 +82,19 @@ uk:
     description: 'Опис:'
     weight: 'Вага:'
     button_back: 'Повернутися до каталогу'
+  cart:
+    title: 'Кошик'
+    item: 'Товар'
+    price: 'Ціна'
+    quantity: 'Кількість'
+    actions: 'Дії'
+    buy_now: 'Підтвердити замовлення'
+    clear_cart: 'Пустий кошик'
+    total: 'Всього'
   contact_page:
     title: 'Контакти'
+    phone_number: 'Телефон'
+    social_media: 'Соціальні мережі'
   admin:
     users:
       user_details: 'Деталі користувача'

@@ -55,6 +55,17 @@ en:
     button_back: 'Back to catalog'
   contact_page:
     title: 'Contacts'
+    phone_number: 'Phone numbers'
+    social_media: 'Social networks'
+  cart:
+    title: 'Cart'
+    item: 'Item'
+    price: 'Price'
+    quantity: 'Quantity'
+    actions: 'Actions'
+    buy_now: 'Buy now'
+    clear_cart: 'Clear cart'
+    total: 'Total'
   admin:
     users:
       user_details: 'User details'

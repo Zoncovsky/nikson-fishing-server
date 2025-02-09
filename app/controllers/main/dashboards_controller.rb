@@ -16,5 +16,7 @@ module Main
     end
 
     def contact; end
+
+    def cart; end
   end
 end
