@@ -11,7 +11,7 @@ module Main
       if params[:category_id].present?
         @products = Product.where(category_id: params[:category_id])
       else
-        @products = Product.all
+        @products = Product.all.order(created_at: :desc)
       end
     end
 

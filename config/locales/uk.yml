@@ -4,7 +4,9 @@ uk:
       models:
         user:
           attributes:
-            full_name:
+            first_name:
+              blank: "Поле 'Ім'я та Призвище' не може бути порожнім"
+            last_name:
               blank: "Поле 'Ім'я та Призвище' не може бути порожнім"
             phone_number:
               blank: "Поле 'Номер телефону' не може бути порожнім"
@@ -42,7 +44,8 @@ uk:
     dont_have_account: 'Не маєте акаунта?'
     forgot_password: 'Забули пароль?'
   sign_up_page:
-    full_name: "Ім'я та прізвище"
+    first_name: "Ім'я"
+    last_name: 'Прізвище'
     phone_number: 'Номер телефону'
     email: 'Електронна пошта'
     password: 'Пароль'

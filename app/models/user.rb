@@ -3,13 +3,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
 
-  validates :full_name, :phone_number, presence: true
+  validates :first_name, :last_name, :phone_number, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :phone_number, phone: true
   validate :password_complexity
 
   def self.ransackable_attributes(auth_object = nil)
-    %w[created_at email encrypted_password full_name id id_value phone_number remember_created_at reset_password_sent_at reset_password_token updated_at]
+    %w[created_at email encrypted_password first_name last_name id id_value phone_number remember_created_at reset_password_sent_at reset_password_token updated_at]
   end
 
   private

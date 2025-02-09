@@ -1,0 +1,38 @@
+<div class="container bg-light p-5 mt-5 rounded-3 shadow">
+  <h1 class="h3 mb-3 fw-normal text-center"><%= t('sign_up_page.title') %></h1>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="form-floating mb-3">
+      <%= f.text_field :first_name, autofocus: true, class: "form-control", id: "floatingFirstName", placeholder: t('sign_up_page.first_name') %>
+      <%= f.label :first_name, t('sign_up_page.first_name'), for: "floatingFirstName" %>
+    </div>
+
+    <div class="form-floating mb-3">
+      <%= f.text_field :last_name, class: "form-control", id: "floatingLastName", placeholder: t('sign_up_page.last_name') %>
+      <%= f.label :last_name, t('sign_up_page.last_name'), for: "floatingLastName" %>
+    </div>
+
+    <div class="form-floating mb-3">
+      <%= f.text_field :phone_number, class: "form-control", id: "floatingPhoneNumber", placeholder: t('sign_up_page.phone_number'), value: '380' %>
+      <%= f.label :phone_number, t('sign_up_page.phone_number'), for: "floatingPhoneNumber" %>
+    </div>
+
+    <div class="form-floating">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "name@example.com", id: "floatingInput" %>
+      <%= f.label :email, for: "floatingInput" %><br />
+    </div>
+    <div class="form-floating">
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "floatingPassword", placeholder: "Password" %>
+      <%= f.label :password, for: "floatingPassword" %><br />
+    </div>
+    <div class="form-floating">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", id: "floatingPassword", placeholder: "Password" %>
+      <%= f.label :password_confirmation, for: "floatingPassword" %><br />
+    </div>
+
+    <%= f.submit t('sign_up_page.title'), class: "btn btn-primary w-100 py-2" %>
+
+    <%= render "devise/shared/links" %>
+  <% end %>
+</div>

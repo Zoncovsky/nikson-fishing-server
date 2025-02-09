@@ -1,0 +1,28 @@
+<div class="container bg-light p-5 mt-5 rounded-3 shadow">
+  <h1 class="h3 mb-3 fw-normal text-center"><%= t('log_in_page.title') %></h1>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="form-floating">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "name@example.com", id: "floatingInput" %>
+      <%= f.label :email, for: "floatingInput" %><br />
+    </div>
+    <div class="form-floating">
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control", id: "floatingPassword", placeholder: "Password" %>
+      <%= f.label :password, for: "floatingPassword" %><br />
+    </div>
+
+    <div class="form-check text-start my-3">
+      <%= f.check_box :remember_me, class:"form-check-input", type:"checkbox", value:"remember-me", id:"flexCheckDefault" %>
+      <label class="form-check-label" for="flexCheckDefault">
+        <%= f.label :remember_me %>
+      </label>
+    </div>
+
+    <%= f.submit t('log_in_page.log_in_button'), class: "btn btn-primary w-100 py-2" %>
+
+    <%= render "devise/shared/links" %>
+  <% end %>
+</div>
+

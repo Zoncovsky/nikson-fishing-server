@@ -1,29 +1,35 @@
-<div class="container mt-2">
-  <div class="row featurette">
-    <div class="col-md-7 order-md-2">
-      <h2 class="featurette-heading fw-normal lh-1"><%= @product.name %></h2>
-      <p class="lead"><%= I18n.t('product_page.description') %> <%= @product.description %>.</p>
-      <p class="lead"><%= I18n.t('product_page.price') %> <%= @product.price %> <%= I18n.t('main_page.currency') %></p>
-      <button type="button" class="btn btn-outline-secondary btn-sm"><i class="bi bi-cart"></i></button>
-      <%= link_to I18n.t('product_page.button_back'), catalog_path, class: "btn btn-secondary btn-sm" %>
-    </div>
-    <div class="col-md-5 order-md-1 border border-2">
-      <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
-          <% @product.images.each do |image| %> 
-            <div class="carousel-item <%= 'active' if image == @product.images.first %>">
-              <%= image_tag image, class: "d-block w-100" %>
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="contact-card bg-white text-center p-3 rounded w-100 shadow mb-5 bg-body-tertiary h-50 d-flex">
+    <div class="row g-0 w-100 h-100">
+      <div class="col-md-4 h-100">
+        <div class="h-100 border border-2">
+          <div id="carouselExampleAutoplaying" class="carousel slide h-100" data-bs-ride="carousel">
+            <div class="carousel-inner h-100">
+              <% @product.images.each do |image| %> 
+                <div class="carousel-item <%= 'active' if image == @product.images.first %> h-100">
+                  <%= image_tag image, class: "d-block w-100 h-100", style: "object-fit: cover;" %>
+                </div>
+              <% end %>
             </div>
-          <% end %>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+      </div>
+      <div class="col-md-8 d-flex align-items-center">
+        <div class="card-body">
+          <h2 class="card-title"><%= @product.name %></h2>
+          <p class="card-text"><%= I18n.t('product_page.description') %> <%= @product.description %></p>
+          <p class="card-text"><%= I18n.t('product_page.price') %> <%= @product.price %> <%= I18n.t('main_page.currency') %></p>
+          <button type="button" class="btn btn-outline-secondary btn-sm"><i class="bi bi-cart"></i></button>
+          <%= link_to I18n.t('product_page.button_back'), catalog_path, class: "btn btn-secondary btn-sm" %>
+        </div>
       </div>
     </div>
   </div>
