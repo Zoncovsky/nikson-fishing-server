@@ -1,0 +1,10 @@
+<div class="container" data-controller="products" data-products-product-value="">
+  <h2 class="mb-8 text-4xl font-extrabold tracking-tight leading-none text-dark md:text-4xl lg:text-4xl text-center bg-light"><%= I18n.t('order.my_orders.history') %></h2>
+  <div class="album py-2 bg-body-tertiary bg-primary text-dark bg-opacity-75">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <%= render 'list' %>
+      </div>
+    </div>
+  </div>
+</div>

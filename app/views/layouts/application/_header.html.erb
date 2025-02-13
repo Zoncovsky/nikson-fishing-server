@@ -14,6 +14,9 @@
         <li class="btn btn-primary">
           <%= link_to t('header.tabs.contacts'), contact_path, class: 'nav-link text-light' %>
         </li>
+        <li class="btn btn-primary">
+          <%= link_to t('header.tabs.my_orders'), main_orders_path, class: 'nav-link text-light' %>
+        </li>
       </ul>
       <div class="d-flex">
         <% if user_signed_in? %>
