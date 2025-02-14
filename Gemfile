@@ -17,7 +17,7 @@ gem 'solid_cable'
 gem 'bootsnap', require: false
 gem 'kamal', require: false
 gem 'thruster', require: false
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.14'
 gem 'sassc-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'activeadmin'
