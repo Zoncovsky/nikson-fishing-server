@@ -64,11 +64,15 @@ en:
     created: 'Order created successfully'
     updated: 'Order updated successfully'
     destroy: 'Order destroy successfully'
+    failed: 'Failed'
     my_orders:
       history: 'History of my orders'
       created_at: 'Created At'
       user_name: 'User Full Name'
       address: 'Address'
+      city: 'City'
+      post_number: 'Number of Post'
+      comment: 'Comment'
       details: 'Details'
       back: 'Back to my orders'
       accept_order: 'Accept Order'
@@ -86,6 +90,8 @@ en:
     users:
       user_details: 'User details'
     not_uploaded: 'Not uploaded'
+    order:
+      products: 'Products in order'
 
   time:
     formats:

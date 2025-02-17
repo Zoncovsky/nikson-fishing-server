@@ -9,17 +9,19 @@ module Main
 
     def show; end
 
-    def create
-      @order = Order.new(order_params)
+    def new
+      @order = Order.new
+    end
 
-      respond_to do |format|
-        if @order.save
-          format.html { redirect_to root_path, notice: t('order.created') }
-          format.json { render :show, status: :created, location: @order }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @order.errors, status: :unprocessable_entity }
-        end
+    def create
+      @order = current_user.orders.build(order_params)
+
+      if @order.save
+        flash[:notice] = t('order.created')
+
+        redirect_to root_path, flash: { notice: t('order.created') }
+      else
+        redirect_to cart_path, flash: { alert: @order.errors.full_messages.join(', ') }
       end
     end
 
@@ -30,7 +32,16 @@ module Main
     end
 
     def order_params
-      params.require(:order).permit(:customer_email, :total, :address, products: [])
+      params.require(:order).permit(
+        :customer_email,
+        :total,
+        :address,
+        :city,
+        :post_number,
+        :comment,
+        :status,
+        order_products_attributes: [:product_id, :quantity]
+      )
     end
   end
 end

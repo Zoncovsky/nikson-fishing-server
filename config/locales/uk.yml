@@ -106,11 +106,15 @@ uk:
     created: 'Замовлення успішно створене'
     updated: 'Замовлення успішно оновлене'
     destroy: 'Замовлення видалено'
+    failed: 'Сталась помилка'
     my_orders:
       history: 'Історія мої замовлень'
       created_at: 'Створено'
       user_name: "Ім'я замовника"
-      address: 'Адреса замовника'
+      address: 'Адреса'
+      city: 'Місто'
+      post_number: 'Відділення пошти'
+      comment: 'Коментар'
       details: 'Деталі замовлення'
       back: 'Назад до моїх замовлень'
       accept_order: 'Підтвердження замовлення'
@@ -119,6 +123,8 @@ uk:
     users:
       user_details: 'Деталі користувача'
     not_uploaded: 'Не завантажено'
+    order:
+      products: 'Товари в замовленні'
   ransack:
     search: "Пошук"
     predicates:
