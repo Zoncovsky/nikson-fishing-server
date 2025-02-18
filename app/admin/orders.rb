@@ -18,7 +18,9 @@ ActiveAdmin.register Order do
     column :total
     column :comment
     column :created_at
-    column :status
+    column :status do |order_status|
+      status_tag order_status.status
+    end
 
     actions
   end
@@ -32,7 +34,9 @@ ActiveAdmin.register Order do
       row :post_number
       row :comment
       row :total
-      row :status
+      row :status do |order_status|
+        status_tag order_status.status
+      end
     end
     panel t('admin.order.products') do
       table_for resource.products do
@@ -45,6 +49,22 @@ ActiveAdmin.register Order do
         column :is_popular
         column :category
       end
+    end
+  end
+
+  member_action :done, method: :patch
+
+  action_item :done, only: :show do
+    if resource.pending?
+      link_to t('admin.order.action_done'), done_admin_order_path(resource), method: :patch
+    end
+  end
+
+  controller do
+    def done
+      resource.update(status: :done)
+
+      redirect_to admin_order_path(resource), notice: t('admin.order.notice_done')
     end
   end
 end

@@ -125,6 +125,8 @@ uk:
     not_uploaded: 'Не завантажено'
     order:
       products: 'Товари в замовленні'
+      action_done: 'Позначіти як виконаний'
+      notice_done: 'Замовлення виконане'
   ransack:
     search: "Пошук"
     predicates:

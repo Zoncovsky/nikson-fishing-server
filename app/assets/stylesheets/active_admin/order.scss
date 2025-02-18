@@ -1,0 +1,8 @@
+.status_tag {
+  &.pending {
+    background: #adadad;
+  }
+  &.done {
+    background: #5e9a70;
+  }
+}

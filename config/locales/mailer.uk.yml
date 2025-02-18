@@ -1,0 +1,14 @@
+uk:
+  create_order_mailer:
+    new_order:
+      subject: 'Нове замовлення'
+      title: 'Деталі замовлення'
+      user_name: "Ім'я замовника"
+      phone_number: 'Номер телефону замовника'
+      email: 'Електронна пошта замовника'
+      address_delivery: 'Адреса доставки'
+      comment: 'Коментар'
+      total: 'Загальна сума замовлення'
+      products: 'Замовлені товари'
+      thanks: 'Дякуюємо за ваше замовлення'
+      currency: 'грн'
