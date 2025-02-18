@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col"><%= t('order.my_orders.user_name') %></th>
+      <th scope="col"><%= t('order.my_orders.address') %></th>
+      <th scope="col"><%= t('order.my_orders.created_at') %></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= link_to order.id, main_order_path(order) %></td>
+        <td><%= order.user.full_name %></td>
+        <td><%= order.address %></td>
+        <td><%= l order.created_at, format: :long %></td>
+        <td><%= render 'list_item_actions', record: order %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

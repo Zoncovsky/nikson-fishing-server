@@ -1,0 +1,43 @@
+<div class="modal fade" id="acceptOrder" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel"><%= t('order.my_orders.accept_order') %></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= form_with model: Order.new, url: main_orders_path, local: true do |f| %>
+          <div class="mb-3">
+            <%= f.hidden_field :customer_email, value: current_user.email %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :address, t('order.my_orders.address'), class: "form-label" %>
+            <%= f.text_field :address, class: "form-control", required: true %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :city, t('order.my_orders.city'), class: "form-label" %>
+            <%= f.text_field :city, class: "form-control", required: true %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :post_number, t('order.my_orders.post_number'), class: "form-label" %>
+            <%= f.text_field :post_number, class: "form-control", required: true, placeholder: "Обов'язково вкажіть тип пошти (Нова пошта, Укр Пошта, інше)" %>
+          </div>
+          <div class="mb-3">
+            <%= f.label :comment, t('order.my_orders.comment'), class: "form-label" %>
+            <%= f.text_area :comment, class: "form-control", placeholder: 'Коментар до замовлення' %>
+          </div>
+
+          <%= f.hidden_field :status, value: :pending %>
+
+          <%= f.hidden_field :total, id: "orderTotal" %>
+
+          <div id="orderItems" style="display: none;"></div>
+
+          <div class="modal-footer">
+            <%= f.submit t('order.my_orders.save'), class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

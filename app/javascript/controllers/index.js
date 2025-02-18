@@ -7,5 +7,8 @@ import { application } from "./application"
 import CartController from "./cart_controller"
 application.register("cart", CartController)
 
+import FlashMessagesController from "./flash_messages_controller"
+application.register("flash-messages", FlashMessagesController)
+
 import ProductsController from "./products_controller"
 application.register("products", ProductsController)

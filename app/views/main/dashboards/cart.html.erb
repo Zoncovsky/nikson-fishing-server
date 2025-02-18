@@ -15,7 +15,7 @@
       </tbody>
     </table>
     <div class="m-4 fw-bold fs-3" id="total" data-total-text="<%= I18n.t('cart.total') %>" data-currency-text="<%= I18n.t('main_page.currency') %>"></div>
-    <button type="button" class="btn btn-primary" data-action="click->cart#checkout">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#acceptOrder">
       <i class="bi bi-credit-card"></i>
       <%= t('cart.buy_now')%>
     </button>
@@ -25,3 +25,5 @@
     </button>
   </div>
 </div>
+
+<%= render 'accept_order_modal', order: @order %>

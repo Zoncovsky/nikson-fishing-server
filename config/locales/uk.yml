@@ -27,10 +27,15 @@ uk:
   time:
     formats:
       long: "%d %B %Y, %H:%M"
+      full: '%m/%d/%Y %H:%M'
+      short: '%B %d, %Y'
+      number: '%m/%d/%Y'
+      humanized: '%Y_%m_%d_%T'
   header:
     tabs:
       catalog: 'Каталог'
       contacts: 'Контакти'
+      my_orders: 'Мої замовлення'
       log_in: 'Увійти'
       log_out: 'Вийти'
       sign_up: 'Зареєструватися'
@@ -79,6 +84,8 @@ uk:
     category: 'Категорії'
     reset_filters: 'Скинути фільтри'
     price: 'Ціна:'
+    name: 'Назва:'
+    category_name: 'Категорія:'
     description: 'Опис:'
     weight: 'Вага:'
     button_back: 'Повернутися до каталогу'
@@ -88,17 +95,36 @@ uk:
     price: 'Ціна'
     quantity: 'Кількість'
     actions: 'Дії'
-    buy_now: 'Підтвердити замовлення'
+    buy_now: 'Замовити'
     clear_cart: 'Пустий кошик'
     total: 'Всього'
   contact_page:
     title: 'Контакти'
     phone_number: 'Телефон'
     social_media: 'Соціальні мережі'
+  order:
+    created: 'Замовлення успішно створене'
+    updated: 'Замовлення успішно оновлене'
+    destroy: 'Замовлення видалено'
+    failed: 'Сталась помилка'
+    my_orders:
+      history: 'Історія мої замовлень'
+      created_at: 'Створено'
+      user_name: "Ім'я замовника"
+      address: 'Адреса'
+      city: 'Місто'
+      post_number: 'Відділення пошти'
+      comment: 'Коментар'
+      details: 'Деталі замовлення'
+      back: 'Назад до моїх замовлень'
+      accept_order: 'Підтвердження замовлення'
+      save: 'Підтверджую'
   admin:
     users:
       user_details: 'Деталі користувача'
     not_uploaded: 'Не завантажено'
+    order:
+      products: 'Товари в замовленні'
   ransack:
     search: "Пошук"
     predicates:
@@ -122,3 +148,5 @@ uk:
       blank: "відсутній"
       null: "нуль"
       not_null: "не нуль"
+  devise:
+    confirm: "Ви впевнені?"

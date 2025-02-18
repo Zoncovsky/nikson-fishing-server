@@ -3,6 +3,7 @@ en:
     tabs:
       catalog: 'Catalog'
       contacts: 'Contacts'
+      my_orders: 'My orders'
       log_in: 'Log in'
       log_out: 'Log out'
       sign_up: 'Sign up'
@@ -50,6 +51,8 @@ en:
     category: 'Categories'
     reset_filters: 'Reset filters'
     price: 'Price:'
+    name: 'Name:'
+    category_name: 'Category:'
     description: 'Description:'
     weight: 'Weight:'
     button_back: 'Back to catalog'
@@ -57,6 +60,23 @@ en:
     title: 'Contacts'
     phone_number: 'Phone numbers'
     social_media: 'Social networks'
+  order:
+    created: 'Order created successfully'
+    updated: 'Order updated successfully'
+    destroy: 'Order destroy successfully'
+    failed: 'Failed'
+    my_orders:
+      history: 'History of my orders'
+      created_at: 'Created At'
+      user_name: 'User Full Name'
+      address: 'Address'
+      city: 'City'
+      post_number: 'Number of Post'
+      comment: 'Comment'
+      details: 'Details'
+      back: 'Back to my orders'
+      accept_order: 'Accept Order'
+      save: 'Submit'
   cart:
     title: 'Cart'
     item: 'Item'
@@ -70,3 +90,14 @@ en:
     users:
       user_details: 'User details'
     not_uploaded: 'Not uploaded'
+    order:
+      products: 'Products in order'
+  devise:
+    confirm: "Are you sure?"
+
+  time:
+    formats:
+      full: '%m/%d/%Y %H:%M'
+      short: '%B %d, %Y'
+      number: '%m/%d/%Y'
+      humanized: '%Y_%m_%d_%T'

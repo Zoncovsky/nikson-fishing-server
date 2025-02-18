@@ -14,6 +14,9 @@
         <li class="btn btn-primary">
           <%= link_to t('header.tabs.contacts'), contact_path, class: 'nav-link text-light' %>
         </li>
+        <li class="btn btn-primary">
+          <%= link_to t('header.tabs.my_orders'), main_orders_path, class: 'nav-link text-light' %>
+        </li>
       </ul>
       <div class="d-flex">
         <% if user_signed_in? %>
@@ -22,7 +25,7 @@
             <span id="cart-count" class="ms-1 text-light">0</span>
           <% end %>
 
-          <%= link_to I18n.t('header.tabs.log_out'), destroy_user_session_path, data: { "turbo-method": :delete, "turbo-confirm": "Are you sure?" }, class: 'btn btn-primary text-light me-2' %>
+          <%= link_to I18n.t('header.tabs.log_out'), destroy_user_session_path, data: { "turbo-method": :delete, "turbo-confirm": t('devise.confirm') }, class: 'btn btn-primary text-light me-2' %>
         <% else %>
           <%= link_to I18n.t('header.tabs.log_in'), new_user_session_path, class: 'btn btn-primary text-light me-2' %>
           <%= link_to I18n.t('header.tabs.sign_up'), new_user_registration_path, class: 'btn btn-primary text-light' %>

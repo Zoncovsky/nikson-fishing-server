@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import Toastify from 'toastify-js';
 
 // Connects to data-controller="products"
 export default class extends Controller {
@@ -9,13 +10,13 @@ export default class extends Controller {
   }
 
   addToCart() {
-    console.log("product: ", this.productValue)
-    const cart = localStorage.getItem("cart")
+    console.log("product: ", this.productValue);
+    const cart = localStorage.getItem("cart");
     if (cart) {
-      const cartArray = JSON.parse(cart)
-      const foundIndex = cartArray.findIndex(item => item.id === this.productValue.id && item.size === this.sizeValue)
+      const cartArray = JSON.parse(cart);
+      const foundIndex = cartArray.findIndex(item => item.id === this.productValue.id && item.size === this.sizeValue);
       if (foundIndex >= 0) {
-        cartArray[foundIndex].quantity = parseInt(cartArray[foundIndex].quantity) + 1
+        cartArray[foundIndex].quantity = parseInt(cartArray[foundIndex].quantity) + 1;
       } else {
         cartArray.push({
           id: this.productValue.id,
@@ -23,20 +24,32 @@ export default class extends Controller {
           price: this.productValue.price,
           size: this.sizeValue,
           quantity: 1
-        })
+        });
       }
-      localStorage.setItem("cart", JSON.stringify(cartArray))
+      localStorage.setItem("cart", JSON.stringify(cartArray));
     } else {
-      const cartArray = []
+      const cartArray = [];
       cartArray.push({
         id: this.productValue.id,
         name: this.productValue.name,
         price: this.productValue.price,
         size: this.sizeValue,
         quantity: 1
-      })
-      localStorage.setItem("cart", JSON.stringify(cartArray))
+      });
+      localStorage.setItem("cart", JSON.stringify(cartArray));
     }
+
+    Toastify({
+      text: `"${this.productValue.name}" додано в кошик!`,
+      duration: 3000,
+      close: true,
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "linear-gradient(to right, #00b09b, #96c93d)",
+      }
+    }).showToast();
+
     this.updateCartCount();
   }
 

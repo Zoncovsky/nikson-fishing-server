@@ -3,15 +3,14 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="cart"
 export default class extends Controller {
   initialize() {
-
-    console.log("cart controller initialized")
-    const cart = JSON.parse(localStorage.getItem("cart"))
+    const cart = JSON.parse(localStorage.getItem("cart"));
     if (!cart) {
-      return
+      return;
     }
 
     let total = 0;
     const cartItemsContainer = document.getElementById("cartItems");
+    const orderItemsElement = document.getElementById('orderItems');
     cart.forEach(item => {
       const row = document.createElement("tr");
       const itemCell = document.createElement("td");
@@ -37,65 +36,76 @@ export default class extends Controller {
 
       cartItemsContainer.appendChild(row);
 
-      total += item.price * item.quantity;
+      total += Math.round(item.price * item.quantity * 100) / 100;
+
+      const productData = {
+        product_id: item.id,
+        quantity: item.quantity,
+        price: item.price
+      };
+
+      const hiddenProductField = document.createElement("input");
+      hiddenProductField.type = "hidden";
+      hiddenProductField.name = `order[order_products_attributes][][product_id]`;
+      hiddenProductField.value = productData.product_id;
+      orderItemsElement.appendChild(hiddenProductField);
+
+      const hiddenQuantityField = document.createElement("input");
+      hiddenQuantityField.type = "hidden";
+      hiddenQuantityField.name = `order[order_products_attributes][][quantity]`;
+      hiddenQuantityField.value = productData.quantity;
+      orderItemsElement.appendChild(hiddenQuantityField);
+
+      const hiddenPriceField = document.createElement("input");
+      hiddenPriceField.type = "hidden";
+      hiddenPriceField.name = `order[order_products_attributes][][price]`;
+      hiddenPriceField.value = productData.price;
+      orderItemsElement.appendChild(hiddenPriceField);
     });
 
     const translation = document.getElementById("total");
     const totalText = translation.dataset.totalText || "Total";
     const totalCurrency = translation.dataset.currencyText || "uah";
-    
+
     const totalEl = document.createElement("div");
     totalEl.innerText = `${totalText}: ${total} ${totalCurrency}`;
     let totalContainer = document.getElementById("total");
     totalContainer.appendChild(totalEl);
+
+    const orderTotalElement = document.getElementById('orderTotal');
+    if (orderTotalElement) {
+      orderTotalElement.value = total;
+      console.log('Order total set:', orderTotalElement.value);
+    } else {
+      console.error('Order total element not found.');
+    }
   }
 
   clear() {
-    localStorage.removeItem("cart")
-    window.location.reload()
+    localStorage.removeItem("cart");
+    window.location.reload();
   }
 
   removeFromCart(event) {
-    const cart = JSON.parse(localStorage.getItem("cart"))
-    const values = JSON.parse(event.target.value)
-    const {id, size} = values
-    const index = cart.findIndex(item => item.id === id && item.size === size)
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    const values = JSON.parse(event.target.value);
+    const {id, size} = values;
+    const index = cart.findIndex(item => item.id === id && item.size === size);
     if (index >= 0) {
-      cart.splice(index, 1)
+      cart.splice(index, 1);
     }
-    localStorage.setItem("cart", JSON.stringify(cart))
-    window.location.reload()
-  }
-
-  checkout() {
-    const cart = JSON.parse(localStorage.getItem("cart"))
-    const payload = {
-      authenticity_token: "",
-      cart: cart
-    }
-
-    const csrfToken = document.querySelector("[name='csrf-token']").content
-
-    fetch("/checkout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-CSRF-Token": csrfToken
-      },
-      body: JSON.stringify(payload)
-    }).then(response => {
-        if (response.ok) {
-          response.json().then(body => {
-            window.location.href = body.url
-          })
-        } else {
-          response.json().then(body => {
-            const errorEl = document.createElement("div")
-            errorEl.innerText = `There was an error processing your order. ${body.error}`
-            let errorContainer = document.getElementById("errorContainer")
-            errorContainer.appendChild(errorEl)
-          })
-        }
-      })
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.location.reload();
   }
 }
+
+document.addEventListener("turbo:load", () => {
+  if (window.location.pathname === "/") {
+    localStorage.removeItem("cart");
+
+    const cartCountElement = document.getElementById("cart-count");
+    if (cartCountElement) {
+      cartCountElement.textContent = "0";
+    }
+  }
+});
