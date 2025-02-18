@@ -92,6 +92,8 @@ en:
     not_uploaded: 'Not uploaded'
     order:
       products: 'Products in order'
+      action_done: 'Done'
+      notice_done: 'Order has been updated'
   devise:
     confirm: "Are you sure?"
 
