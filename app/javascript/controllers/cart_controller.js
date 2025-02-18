@@ -36,7 +36,7 @@ export default class extends Controller {
 
       cartItemsContainer.appendChild(row);
 
-      total += item.price * item.quantity;
+      total += Math.round(item.price * item.quantity * 100) / 100;
 
       const productData = {
         product_id: item.id,
@@ -98,3 +98,14 @@ export default class extends Controller {
     window.location.reload();
   }
 }
+
+document.addEventListener("turbo:load", () => {
+  if (window.location.pathname === "/") {
+    localStorage.removeItem("cart");
+
+    const cartCountElement = document.getElementById("cart-count");
+    if (cartCountElement) {
+      cartCountElement.textContent = "0";
+    }
+  }
+});

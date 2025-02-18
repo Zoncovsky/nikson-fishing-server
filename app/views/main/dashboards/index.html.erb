@@ -25,7 +25,9 @@
                   <div class="btn-group">
                     <%= link_to t('main_page.view_details'), main_product_path(ppr), class: 'btn btn-sm btn-outline-primary' %>
                   </div>
-                  <button data-action="click->products#addToCart" class="btn btn-outline-primary btn-sm"><i class="bi bi-cart"></i></button>
+                  <% if user_signed_in? %>
+                    <button data-action="click->products#addToCart" class="btn btn-outline-primary btn-sm"><i class="bi bi-cart"></i></button>
+                  <% end %>
                 </div>
               </div>
             </div>

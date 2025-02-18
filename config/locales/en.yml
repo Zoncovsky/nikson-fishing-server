@@ -92,6 +92,8 @@ en:
     not_uploaded: 'Not uploaded'
     order:
       products: 'Products in order'
+  devise:
+    confirm: "Are you sure?"
 
   time:
     formats:

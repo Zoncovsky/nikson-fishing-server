@@ -148,3 +148,5 @@ uk:
       blank: "відсутній"
       null: "нуль"
       not_null: "не нуль"
+  devise:
+    confirm: "Ви впевнені?"

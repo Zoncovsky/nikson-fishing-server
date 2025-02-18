@@ -19,7 +19,7 @@
       <div>
         <%= render 'layouts/application/header' %>
         <div>
-          <%= render 'layouts/shared/flash_messages' %>
+          <div data-controller="flash-messages" data-flash="<%= JSON.dump(flash.to_a) %>"></div>
           <%= yield %>
         </div>
       </div>

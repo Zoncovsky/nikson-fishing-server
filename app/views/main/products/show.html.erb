@@ -27,7 +27,9 @@
           <h2 class="card-title"><%= @product.name %></h2>
           <p class="card-text"><%= I18n.t('product_page.description') %> <%= @product.description %></p>
           <p class="card-text"><%= I18n.t('product_page.price') %> <%= @product.price %> <%= I18n.t('main_page.currency') %></p>
-          <button data-action="click->products#addToCart" class="btn btn-outline-primary btn-sm"><i class="bi bi-cart"></i></button>
+          <% if user_signed_in? %>
+            <button data-action="click->products#addToCart" class="btn btn-outline-primary btn-sm"><i class="bi bi-cart"></i></button>
+          <% end %>
           <%= link_to I18n.t('product_page.button_back'), catalog_path, class: "btn btn-primary btn-sm" %>
         </div>
       </div>
