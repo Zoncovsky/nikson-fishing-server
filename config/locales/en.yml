@@ -56,6 +56,13 @@ en:
     description: 'Description:'
     weight: 'Weight:'
     button_back: 'Back to catalog'
+    filter: 'Filters'
+    search:
+      by_name: 'Find by name'
+      by_date: 'Date range'
+      by_category: 'Category'
+      price_from: 'From'
+      price_to: 'To'
   contact_page:
     title: 'Contacts'
     phone_number: 'Phone numbers'

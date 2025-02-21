@@ -28,6 +28,7 @@ gem 'devise-i18n'
 gem 'pundit'
 gem 'phonelib'
 gem 'rexml'
+gem 'pagy'
 
 group :development, :test do  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'

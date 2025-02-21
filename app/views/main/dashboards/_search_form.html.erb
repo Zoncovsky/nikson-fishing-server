@@ -1,0 +1,32 @@
+<%= search_form_for @search, url: catalog_path, class: 'search-form' do |f| %>
+  <div class="d-flex form-row">
+    <div class="flex-grow-1 col-md-5">
+      <label class="form-label"><%= t('product_page.search.by_name') %></label>
+      <%= f.search_field :name_cont, class: 'form-control', placeholder: t('product_page.name') %>
+
+      <hr>
+
+      <label class="form-label"><%= t('product_page.search.by_price') %></label>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <%= f.search_field :price_gteq, class: 'form-control' %>
+          <small class="form-text text-muted d-block"><%= t('product_page.search.price_from') %></small>
+        </div>
+        <div class="col-md-6">
+          <%= f.search_field :price_lteq, class: 'form-control' %>
+          <small class="form-text text-muted d-block text-end"><%= t('product_page.search.price_to') %></small>
+        </div>
+      </div>
+
+      <hr>
+
+      <label class="form-label"><%= t('product_page.search.by_category') %></label>
+      <%= f.select :category_id_eq, options_from_collection_for_select(Category.all, "id", "name", @search.category_id_eq), { include_blank: '---' }, class: 'form-control' %>
+    </div>
+  </div>
+
+  <hr>
+
+  <%= f.submit 'Search', class: 'btn btn-outline-primary' %>
+  <%= link_to t('product_page.reset_filters'), catalog_path, class: 'btn btn-outline-danger' %>
+<% end %>

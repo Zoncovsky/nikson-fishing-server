@@ -7,16 +7,19 @@ module Main
 
     def catalog
       @main_categories = Category.all
+      @search = Product.ransack(params[:q])
 
       if params[:category_id].present?
-        @products = Product.where(category_id: params[:category_id])
+        Product.where(category_id: params[:category_id])
       else
-        @products = Product.all.order(created_at: :desc)
+        Product.all
       end
+
+      @search_products = @search.result(distinct: true)
+      @pagy, @products = pagy(@search_products.order(created_at: :asc), limit: 6)
     end
 
     def contact; end
-
     def cart; end
   end
 end
