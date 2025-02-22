@@ -5,6 +5,7 @@ module Main
 
     def index
       @popular_products = Product.popular
+      @new_arrivals = Product.new_arrivals
     end
 
     def catalog

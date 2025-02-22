@@ -57,6 +57,7 @@ en:
     weight: 'Weight:'
     button_back: 'Back to catalog'
     filter: 'Filters'
+    add_to_cart: 'Add to cart'
     sorting:
       title: 'Sorting'
       sort_by_price_low: 'From low price to high'
