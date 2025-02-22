@@ -56,6 +56,18 @@ en:
     description: 'Description:'
     weight: 'Weight:'
     button_back: 'Back to catalog'
+    filter: 'Filters'
+    sorting:
+      title: 'Sorting'
+      sort_by_price_low: 'From low price to high'
+      sort_by_price_high: 'From high price to low'
+      sort_by_newest: 'Start from newest'
+    search:
+      by_name: 'Find by name'
+      by_date: 'Date range'
+      by_category: 'Category'
+      price_from: 'From'
+      price_to: 'To'
   contact_page:
     title: 'Contacts'
     phone_number: 'Phone numbers'
