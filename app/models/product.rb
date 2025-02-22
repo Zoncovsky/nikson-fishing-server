@@ -8,8 +8,8 @@ class Product < ApplicationRecord
     attachable.variant :medium, resize_to_limit: [250, 250]
   end
 
-  scope :popular, -> { where(is_popular: true) }
-  scope :new_arrivals, -> { where(is_new_arrival: true) }
+  scope :popular, -> { where(is_popular: true).limit(6) }
+  scope :new_arrivals, -> { where(is_new_arrival: true).limit(6) }
 
   def self.ransackable_attributes(auth_object = nil)
     %w[category_id created_at description id id_value is_new_arrival is_popular name price updated_at ]
