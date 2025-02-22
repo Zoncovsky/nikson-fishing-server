@@ -4,7 +4,7 @@ module Main
     before_action :set_order, only: %i[show]
 
     def index
-      @orders = Order.all
+      @orders = current_user.orders
     end
 
     def show; end

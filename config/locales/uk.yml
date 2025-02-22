@@ -90,6 +90,11 @@ uk:
     weight: 'Вага:'
     button_back: 'Повернутися до каталогу'
     filter: 'Фільтри'
+    sorting:
+      title: 'Сортувати'
+      sort_by_price_low: 'Від дешевих до дорогих'
+      sort_by_price_high: 'Від дорогих до дешевих'
+      sort_by_newest: 'Спочатку нові'
     search:
       by_name: 'По назві'
       by_price: 'За ціною'

@@ -1,27 +1,30 @@
 <div class="container">
-  <div class="album py-5 bg-body-tertiary bg-primary text-dark bg-opacity-75">
+  <div class="album py-2 bg-body-tertiary bg-primary text-dark bg-opacity-75">
     <div class="container">
-      <div class="align-items-center">
-        <div class="row row-cols-auto justify-content-end">
+      <div class="d-flex justify-content-center p-2">
+        <div class="row row-cols-auto ms-auto">
           <div class="col">
             <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasFilters" role="button" aria-controls="offcanvasFilters">
+              <i class="bi bi-funnel"></i>
               <%= t('product_page.filter') %>
             </a>
           </div>
           <div class="col">
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
+                <i class="bi bi-sort-up-alt"></i>
+                <%= t('product_page.sorting.title') %>
               </button>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><%= link_to t('product_page.sorting.sort_by_newest'), catalog_path(q: params[:q]&.to_unsafe_h || {}, sort: 'created_at DESC'), class: 'dropdown-item' %></li>
+                <li><%= link_to t('product_page.sorting.sort_by_price_low'), catalog_path(q: params[:q]&.to_unsafe_h || {}, sort: 'price ASC'), class: 'dropdown-item' %></li>
+                <li><%= link_to t('product_page.sorting.sort_by_price_high'), catalog_path(q: params[:q]&.to_unsafe_h || {}, sort: 'price DESC'), class: 'dropdown-item' %></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
+
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <% @products.each do |product| %>
           <div class="col" data-controller="products" data-products-product-value="<%= product.to_json %>">
