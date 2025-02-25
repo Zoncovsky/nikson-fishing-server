@@ -17,7 +17,7 @@ module Main
       @order = current_user.orders.build(order_params)
 
       if @order.save
-        CreateOrderMailer.new_order(current_user, @order).deliver_now
+        CreateOrderMailer.new_order(current_user, @order).deliver_later
 
         flash[:notice] = t('order.created')
 

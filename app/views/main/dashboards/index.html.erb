@@ -10,50 +10,52 @@
   <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
 </div>
 
-<div class="container position-relative">
-  <div class="album py-2 bg-body-tertiary bg-primary text-dark bg-opacity-75">
-    <h2 class="mb-8 text-4xl font-extrabold tracking-tight leading-none text-dark md:text-4xl lg:text-4xl text-center bg-light border border-secondary">
-      <%= I18n.t('main_page.new_products') %>
-    </h2>
-    <div class="container">
-      <div id="newArrivalsCarousel" class="carousel slide" data-bs-ride="false">
-        <div class="carousel-inner">
-          <% @new_arrivals.in_groups_of(5, false).each_with_index do |group, index| %>
-            <div class="carousel-item <%= 'active' if index.zero? %>">
-              <div class="row row-cols-1 row-cols-md-5 g-3">
-                <% group.each do |product| %>
-                  <div class="col">
-                    <div class="card shadow-sm h-100">
-                      <%= image_tag product.images.first, class: 'bd-placeholder-img card-img-top img-fluid', style: 'height: 200px; object-fit: cover;' %>
-                      <div class="card-body d-flex flex-column">
-                        <p class="card-text"><%= product.name %></p>
-                        <p class="card-text"><%= product.price %> <%= I18n.t('main_page.currency') %></p>
-                        <div class="d-flex justify-content-between align-items-center mt-auto">
-                          <div class="btn-group">
-                            <%= link_to t('main_page.view_details'), main_product_path(product), class: 'btn btn-sm btn-outline-primary' %>
+<% if @new_arrivals.any? %>
+  <div class="container position-relative">
+    <div class="album py-2 bg-body-tertiary bg-primary text-dark bg-opacity-75">
+      <h2 class="mb-8 text-4xl font-extrabold tracking-tight leading-none text-dark md:text-4xl lg:text-4xl text-center bg-light border border-secondary">
+        <%= I18n.t('main_page.new_products') %>
+      </h2>
+      <div class="container">
+        <div id="newArrivalsCarousel" class="carousel slide" data-bs-ride="false">
+          <div class="carousel-inner">
+            <% @new_arrivals.in_groups_of(5, false).each_with_index do |group, index| %>
+              <div class="carousel-item <%= 'active' if index.zero? %>">
+                <div class="row row-cols-1 row-cols-md-5 g-3">
+                  <% group.each do |product| %>
+                    <div class="col">
+                      <div class="card shadow-sm h-100">
+                        <%= image_tag product.images.first, class: 'bd-placeholder-img card-img-top img-fluid', style: 'height: 200px; object-fit: cover;' %>
+                        <div class="card-body d-flex flex-column">
+                          <p class="card-text"><%= product.name %></p>
+                          <p class="card-text"><%= product.price %> <%= I18n.t('main_page.currency') %></p>
+                          <div class="d-flex justify-content-between align-items-center mt-auto">
+                            <div class="btn-group">
+                              <%= link_to t('main_page.view_details'), main_product_path(product), class: 'btn btn-sm btn-outline-primary' %>
+                            </div>
+                            <% if user_signed_in? %>
+                              <button data-action="click->products#addToCart" class="btn btn-outline-primary btn-sm"><i class="bi bi-cart"></i></button>
+                            <% end %>
                           </div>
-                          <% if user_signed_in? %>
-                            <button data-action="click->products#addToCart" class="btn btn-outline-primary btn-sm"><i class="bi bi-cart"></i></button>
-                          <% end %>
                         </div>
                       </div>
                     </div>
-                  </div>
-                <% end %>
+                  <% end %>
+                </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
+        <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle-y border border-primary" type="button" data-bs-target="#newArrivalsCarousel" data-bs-slide="prev" style="width: 50px; height: 50px; background-color: rgba(0,0,0,0.5); border-radius: 50%;">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next position-absolute top-50 end-0 translate-middle-y border border-primary" type="button" data-bs-target="#newArrivalsCarousel" data-bs-slide="next" style="width: 50px; height: 50px; background-color: rgba(0,0,0,0.5); border-radius: 50%;">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
       </div>
-      <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle-y border border-primary" type="button" data-bs-target="#newArrivalsCarousel" data-bs-slide="prev" style="width: 50px; height: 50px; background-color: rgba(0,0,0,0.5); border-radius: 50%;">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      </button>
-      <button class="carousel-control-next position-absolute top-50 end-0 translate-middle-y border border-primary" type="button" data-bs-target="#newArrivalsCarousel" data-bs-slide="next" style="width: 50px; height: 50px; background-color: rgba(0,0,0,0.5); border-radius: 50%;">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      </button>
     </div>
   </div>
-</div>
+<% end %>
 
 <div class="container position-relative">
   <div class="album py-2 bg-body-tertiary bg-primary text-dark bg-opacity-75">
@@ -61,7 +63,7 @@
       <%= I18n.t('main_page.popular_item') %>
     </h2>
     <div class="container">
-      <div id="newArrivalsCarousel" class="carousel slide" data-bs-ride="false">
+      <div id="popularProductsCarousel" class="carousel slide" data-bs-ride="false">
         <div class="carousel-inner">
           <% @popular_products.in_groups_of(5, false).each_with_index do |group, index| %>
             <div class="carousel-item <%= 'active' if index.zero? %>">
@@ -90,10 +92,10 @@
           <% end %>
         </div>
       </div>
-      <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle-y border border-primary" type="button" data-bs-target="#newArrivalsCarousel" data-bs-slide="prev" style="width: 50px; height: 50px; background-color: rgba(0,0,0,0.5); border-radius: 50%;">
+      <button class="carousel-control-prev position-absolute top-50 start-0 translate-middle-y border border-primary" type="button" data-bs-target="#popularProductsCarousel" data-bs-slide="prev" style="width: 50px; height: 50px; background-color: rgba(0,0,0,0.5); border-radius: 50%;">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       </button>
-      <button class="carousel-control-next position-absolute top-50 end-0 translate-middle-y border border-primary" type="button" data-bs-target="#newArrivalsCarousel" data-bs-slide="next" style="width: 50px; height: 50px; background-color: rgba(0,0,0,0.5); border-radius: 50%;">
+      <button class="carousel-control-next position-absolute top-50 end-0 translate-middle-y border border-primary" type="button" data-bs-target="#popularProductsCarousel" data-bs-slide="next" style="width: 50px; height: 50px; background-color: rgba(0,0,0,0.5); border-radius: 50%;">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
       </button>
     </div>
