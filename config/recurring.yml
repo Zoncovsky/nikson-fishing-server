@@ -8,3 +8,9 @@
 #     command: "SoftDeletedRecord.due.delete_all"
 #     priority: 2
 #     schedule: at 5am every day
+
+development:
+  periodic_cleanup_new_arrivals:
+    class: UpdateNewArrivalJob
+    queue: background
+    schedule: every 30 seconds

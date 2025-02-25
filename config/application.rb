@@ -23,5 +23,7 @@ module NiksonFishingServer
     #
     config.i18n.default_locale = :uk
     config.time_zone = 'Kyiv'
+
+    config.mission_control.jobs.base_controller_class = 'ApplicationController'
   end
 end

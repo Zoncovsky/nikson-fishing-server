@@ -29,6 +29,7 @@ gem 'pundit'
 gem 'phonelib'
 gem 'rexml'
 gem 'pagy'
+gem 'mission_control-jobs'
 
 group :development, :test do  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
