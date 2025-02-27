@@ -30,6 +30,11 @@ gem 'phonelib'
 gem 'rexml'
 gem 'pagy'
 gem 'mission_control-jobs'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+gem 'activerecord-session_store'
+
 
 group :development, :test do  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'

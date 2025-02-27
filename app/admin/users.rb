@@ -23,6 +23,8 @@ ActiveAdmin.register User do
       row :last_name
       row :phone_number
       row :email
+      row :provider
+      row :uid
       row :created_at
     end
   end
