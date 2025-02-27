@@ -24,5 +24,10 @@
 
     <%= render "devise/shared/links" %>
   <% end %>
+  <hr>
+
+  <%= button_to user_google_oauth2_omniauth_authorize_path, method: :post, :data => {turbo: "false"}, class: 'btn btn-outline-primary' do %>
+    <i class="bi bi-google"></i> Login with Google
+  <% end %>
 </div>
 

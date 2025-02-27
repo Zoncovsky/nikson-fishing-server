@@ -85,6 +85,8 @@ en:
       address: 'Address'
       city: 'City'
       post_number: 'Number of Post'
+      phone_number: 'Phone number'
+      phone_number_hint: 'Enter your phone number'
       comment: 'Comment'
       details: 'Details'
       back: 'Back to my orders'

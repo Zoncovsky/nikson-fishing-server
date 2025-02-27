@@ -14,8 +14,9 @@
     </div>
 
     <div class="form-floating mb-3">
-      <%= f.text_field :phone_number, class: "form-control", id: "floatingPhoneNumber", placeholder: t('sign_up_page.phone_number'), value: '380' %>
+      <%= f.text_field :phone_number, class: "form-control", id: "floatingPhoneNumber", placeholder: t('sign_up_page.phone_number') %>
       <%= f.label :phone_number, t('sign_up_page.phone_number'), for: "floatingPhoneNumber" %>
+      <small class="text-muted ms-2">380...</small>
     </div>
 
     <div class="form-floating">

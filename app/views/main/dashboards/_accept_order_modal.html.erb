@@ -10,6 +10,15 @@
           <div class="mb-3">
             <%= f.hidden_field :customer_email, value: current_user.email %>
           </div>
+
+          <% if current_user.phone_number.blank? %>
+            <div class="mb-3">
+              <%= label_tag :phone_number, t('order.my_orders.phone_number'), class: "form-label" %>
+              <%= text_field_tag :phone_number, nil, class: "form-control", required: true %>
+              <small class="text-muted"><%= t('order.my_orders.phone_number_hint') %></small>
+            </div>
+          <% end %>
+
           <div class="mb-3">
             <%= f.label :address, t('order.my_orders.address'), class: "form-label" %>
             <%= f.text_field :address, class: "form-control", required: true %>
@@ -28,7 +37,6 @@
           </div>
 
           <%= f.hidden_field :status, value: :pending %>
-
           <%= f.hidden_field :total, id: "orderTotal" %>
 
           <div id="orderItems" style="display: none;"></div>
