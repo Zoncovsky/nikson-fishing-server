@@ -4,10 +4,6 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  http_basic_authenticate_with name: "#{Rails.application.credentials.http_basic_auth_admin_panel_user}",
-    password: "#{Rails.application.credentials.http_basic_auth_admin_panel_password}",
-    if: :basic_auth_enabled?
-
   protected
 
   def active_admin_controller?

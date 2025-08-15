@@ -3,6 +3,23 @@ ActiveAdmin.register Product do
 
   filter :created_at
 
+  controller do
+    def update
+      product_params = permitted_params[:product]
+
+      if product_params[:images].blank? || product_params[:images].all?(&:blank?)
+        product_params.delete(:images)
+      end
+
+      @product = Product.find(params[:id])
+      if @product.update(product_params)
+        redirect_to admin_product_path(@product), notice: "Product was successfully updated."
+      else
+        render :edit
+      end
+    end
+  end
+
   index do
     id_column
     column :name
@@ -17,7 +34,6 @@ ActiveAdmin.register Product do
       end
     end
     column :created_at
-
     actions
   end
 
@@ -59,7 +75,6 @@ ActiveAdmin.register Product do
       end
       f.input :images, as: :file, input_html: { multiple: true }
     end
-
     f.actions
   end
 end
