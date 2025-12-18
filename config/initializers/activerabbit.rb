@@ -1,6 +1,3 @@
-require 'openssl'
-OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-
 ActiveRabbit::Client.configure do |config|
   config.api_key = 'd1d1436596e96f782e19b5b305f6eeb0834e362d426f000dba83371e89ccb9bb'
 
