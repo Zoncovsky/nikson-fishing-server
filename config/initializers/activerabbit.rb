@@ -24,12 +24,7 @@ ActiveRabbit::Client.configure do |config|
   config.api_url = 'http://65.108.93.69'
 
     # Optional: enable deployment tracking
-    config.revision =
-    ENV['RENDER_GIT_COMMIT'] ||
-    ENV['APP_REVISION'] ||
-    ENV['GITHUB_SHA'] ||
-    ENV['GITLAB_COMMIT_SHA']
-
+    config.revision = `git rev-parse --short HEAD`.strip
   # Optional: 404 handling (true = ignore 404s, false = report them)
   config.ignore_404 = true
 end
