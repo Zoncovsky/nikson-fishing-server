@@ -21,6 +21,8 @@ ActiveRabbit::Client.configure do |config|
   config.enable_n_plus_one_detection   = true
   config.enable_pii_scrubbing          = true
 
+  config.api_url = 'http://65.108.93.69'
+
   # Optional: enable deployment tracking
   config.revision = ENV['APP_REVISION'] || `git rev-parse HEAD`.chomp
 
