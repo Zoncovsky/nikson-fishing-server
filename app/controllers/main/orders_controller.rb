@@ -4,7 +4,6 @@ module Main
     before_action :set_order, only: %i[show]
 
     def index
-      nil.undefined_method
       @orders = current_user.orders
     end
 
