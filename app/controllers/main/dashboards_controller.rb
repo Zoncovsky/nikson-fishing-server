@@ -4,11 +4,13 @@ module Main
     before_action :load_products, only: :catalog
 
     def index
+      1 / 0
       @popular_products = Product.popular
       @new_arrivals = Product.new_arrivals
     end
 
     def catalog
+      sleep 20
       @pagy, @products = pagy(@search_products, limit: 6)
     end
 

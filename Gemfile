@@ -18,11 +18,11 @@ gem 'bootsnap', require: false
 gem 'kamal', require: false
 gem 'thruster', require: false
 gem 'image_processing', '~> 1.14'
-gem 'sassc-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'activeadmin'
 gem 'activeadmin-searchable_select'
 gem 'activeadmin_reorderable'
+gem 'activerabbit-ai'
 gem 'devise'
 gem 'devise-i18n'
 gem 'pundit'

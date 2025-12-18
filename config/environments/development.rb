@@ -38,7 +38,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   # Set localhost to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3001 }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -75,12 +75,12 @@ Rails.application.configure do
 
   # Looking to send emails in production? Check out our Email API/SMTP product!
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    user_name: Rails.application.credentials.mailtrap_user_name,
-    password: Rails.application.credentials.mailtrap_password,
-    address: Rails.application.credentials.mailtrap_address,
-    host: Rails.application.credentials.mailtrap_host,
-    port: Rails.application.credentials.mailtrap_port,
-    authentication: :login
-  }
+    config.action_mailer.smtp_settings = {
+      user_name: '6e41338b8aed71',
+      password: '851750af27c829',
+      address: 'sandbox.smtp.mailtrap.io',
+      host: 'sandbox.smtp.mailtrap.io',
+      port: '2525',
+      authentication: :login
+    }
 end
