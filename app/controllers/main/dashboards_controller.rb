@@ -13,11 +13,9 @@ module Main
     end
 
     def contact
-      nil.undefined_method
-    end
-    def cart
       1 / 0
     end
+    def cart; end
 
     private
 
