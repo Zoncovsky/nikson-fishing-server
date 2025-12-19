@@ -1,5 +1,3 @@
-require 'active_rabbit'
-
 # ActiveRabbit::Client.configure do |config|
 #   config.api_key = 'd1d1436596e96f782e19b5b305f6eeb0834e362d426f000dba83371e89ccb9bb'
 
@@ -25,8 +23,5 @@ ActiveRabbit::Client.configure do |config|
 
   config.api_url = 'http://65.108.93.69'
 
-    # Optional: enable deployment tracking
-    config.revision = `git rev-parse --short HEAD`.strip
-  # Optional: 404 handling (true = ignore 404s, false = report them)
   config.ignore_404 = true
 end
