@@ -9,7 +9,7 @@ module Main
     end
 
     def catalog
-      @pagy, @products = pagy(@search_products, limit: 6)
+      @products = Product.all
     end
 
     def contact
