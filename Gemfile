@@ -22,7 +22,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'activeadmin'
 gem 'activeadmin-searchable_select'
 gem 'activeadmin_reorderable'
-gem 'activerabbit-ai'
+# gem 'activerabbit-ai'
+gem 'active_rabbit',
+    git: 'https://github.com/Zoncovsky/activerabbit-ai.git',
+    branch: 'fix/creating-deploy'
+
 gem 'devise'
 gem 'devise-i18n'
 gem 'pundit'
@@ -36,7 +40,8 @@ gem 'omniauth-rails_csrf_protection'
 gem 'activerecord-session_store'
 
 
-group :development, :test do  gem 'debug', platforms: %i[mri mingw x64_mingw]
+group :development, :test do
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'pry-byebug'
