@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/Zoncovsky/activerabbit-ai.git
-  revision: ca4e6ee1df4740e6f85f4fa6265bb5cf3e02691c
+  revision: 4bc3aedbceba12b288a125f49de5527e6e2f5268
   branch: fix/creating-deploy
   specs:
-    activerabbit-ai (0.5.0)
+    activerabbit-ai (0.5.1)
       concurrent-ruby (~> 1.1)
 
 GEM
@@ -664,7 +664,7 @@ CHECKSUMS
   activeadmin_reorderable (0.3.4) sha256=7258cacd08349f17c7df0006acbae371b3fcfd43a1ce1816bd64d7e2aab7b4b1
   activejob (8.0.4) sha256=cbc8a85d0e168cb90a5629c8a36fe2d08ba840103d3aed3eee0c7beb784fccce
   activemodel (8.0.4) sha256=8f4e4fac3cd104b1bf30419c3745206f6f724c0e2902a939b4113f4c90730dfd
-  activerabbit-ai (0.5.0)
+  activerabbit-ai (0.5.1)
   activerecord (8.0.4) sha256=bda32c171799e5ca5460447d3b7272ed14447244e2497abf2107f87fc44cbf32
   activerecord-session_store (2.2.0) sha256=65918054573683bf4f87af89e765e1fece14c9d71cfac1f11abe4687c96e2743
   activestorage (8.0.4) sha256=47f312962fc898c1669f20cf7448d19668a5547f4a5f64e59a837d9d3f64a043
