@@ -23,7 +23,7 @@ gem 'activeadmin'
 gem 'activeadmin-searchable_select'
 gem 'activeadmin_reorderable'
 # gem 'activerabbit-ai'
-gem 'active_rabbit',
+gem 'activerabbit-ai',
     git: 'https://github.com/Zoncovsky/activerabbit-ai.git',
     branch: 'fix/creating-deploy'
 
