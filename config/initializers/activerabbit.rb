@@ -8,6 +8,7 @@ ActiveRabbit::Client.configure do |config|
 
   # Optional: enable deployment tracking
   config.revision = ENV["APP_REVISION"] || `git rev-parse HEAD`.chomp
+  config.api_url  = "https://api.activerabbit.com"
 
   # Optional: 404 handling (true = ignore 404s, false = report them)
   config.ignore_404 = true
