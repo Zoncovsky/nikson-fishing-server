@@ -1,4 +1,4 @@
-# ActiveRabbit::Client.configure do |config|
+ActiveRabbit::Client.configure do |config|
 #   config.api_key = "72165fde612945a0a5d08237f3d421e253d77e84ac5bb6172593078401350fc3"
 
 #   # Enable monitoring features
@@ -8,10 +8,9 @@
 
 #   # Optional: enable deployment tracking
 #   config.revision = ENV["APP_REVISION"] || `git rev-parse HEAD`.chomp
-#   config.api_url = "https://api.activerabbit.ai"
+   config.api_url = "http://65.108.93.69"
 #   config.disable_console_logs = false
 
 #   # Optional: 404 handling (true = ignore 404s, false = report them)
 #   config.ignore_404 = true
-# end
-
+end
