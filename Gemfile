@@ -22,10 +22,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'activeadmin'
 gem 'activeadmin-searchable_select'
 gem 'activeadmin_reorderable'
-# gem 'activerabbit-ai'
-gem 'activerabbit-ai',
-    git: 'https://github.com/Zoncovsky/activerabbit-ai.git',
-    branch: 'fix/creating-deploy'
+gem 'activerabbit-ai'
+
+# gem 'activerabbit-ai', path: '/Users/mac/Desktop/activerabbit-ai'
 
 gem 'devise'
 gem 'devise-i18n'

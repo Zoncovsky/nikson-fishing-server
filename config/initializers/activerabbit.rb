@@ -14,14 +14,14 @@
 # end
 
 ActiveRabbit::Client.configure do |config|
-  config.api_key = '83db4c5f00a7b6449e38ceeef5da3670f43b6dfff864189fe40cfef275526beb'
+  # config.api_key = '83db4c5f00a7b6449e38ceeef5da3670f43b6dfff864189fe40cfef275526beb'
 
   # Enable monitoring features
-  config.enable_performance_monitoring = true
-  config.enable_n_plus_one_detection   = true
-  config.enable_pii_scrubbing          = true
+  # config.enable_performance_monitoring = true
+  # config.enable_n_plus_one_detection   = true
+  # config.enable_pii_scrubbing          = true
 
   config.api_url = 'http://65.108.93.69'
 
-  config.ignore_404 = true
+  # config.ignore_404 = true
 end
