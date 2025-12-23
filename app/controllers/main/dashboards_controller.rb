@@ -9,6 +9,7 @@ module Main
     end
 
     def catalog
+      1 / 0
       @products = Product.all
     end
 
