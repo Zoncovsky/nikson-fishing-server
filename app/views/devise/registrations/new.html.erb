@@ -4,7 +4,7 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="form-floating mb-3">
-      <%= f.text_field :first_name, autofocus: true, class: "form-control", id: "floatingFirstName", placeholder: t('sign_up_page.first_name') %>
+      <%= form.text_field :first_name, autofocus: true, class: "form-control", id: "floatingFirstName", placeholder: t('sign_up_page.first_name') %>
       <%= f.label :first_name, t('sign_up_page.first_name'), for: "floatingFirstName" %>
     </div>
 

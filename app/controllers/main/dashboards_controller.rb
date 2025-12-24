@@ -4,6 +4,7 @@ module Main
     before_action :load_products, only: :catalog
 
     def index
+      sleep 20
       @popular_products = Product.popular
       @new_arrivals = Product.new_arrivals
     end
