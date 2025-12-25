@@ -4,18 +4,17 @@ module Main
     before_action :load_products, only: :catalog
 
     def index
-      sleep 20
       @popular_products = Product.popular
       @new_arrivals = Product.new_arrivals
     end
 
     def catalog
-      1 / 0
+      sleep 20
       @products = Product.all
     end
 
     def contact
-      1 / 0
+      nil.undefined_method
     end
     def cart; end
 
