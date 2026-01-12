@@ -1,7 +1,3 @@
-module Main
-  class ProductsController < ApplicationController
-    def show
-      @product = Product.find(params[:id])
-    end
-  end
+def show
+  @product = Product.find(123)  # <-- ERROR HERE
 end
