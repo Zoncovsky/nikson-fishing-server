@@ -9,14 +9,15 @@ module Main
     end
 
     def catalog
-      sleep 20
       @products = Product.all
     end
 
     def contact
+      1 / 0
+    end
+    def cart
       nil.undefined_method
     end
-    def cart; end
 
     private
 
