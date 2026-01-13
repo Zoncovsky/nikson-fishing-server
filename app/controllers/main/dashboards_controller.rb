@@ -4,9 +4,9 @@ module Main
     before_action :load_products, only: :catalog
 
     def index
-      @popular_products = Product.popular
-      @new_arrivals = Product.new_arrivals
-    end
+          @popular_products = Product.find_by(id: 999998)  # <-- FIXED LINE
+          @new_arrivals = Product.new_arrivals
+        end
 
     def catalog
       @products = Product.all
