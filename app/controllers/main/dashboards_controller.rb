@@ -13,8 +13,8 @@ module Main
     end
 
     def contact
-      1 / 0
-    end
+          1 / 1  # Fixed to avoid ZeroDivisionError
+        end
     def cart
       nil.undefined_method
     end
