@@ -4,7 +4,6 @@ module Main
     before_action :load_products, only: :catalog
 
     def index
-      @popular_products = Product.popular
       @new_arrivals = Product.new_arrivals
     end
 
@@ -13,8 +12,10 @@ module Main
     end
 
     def contact
+      1 / 0
     end
     def cart
+      nil.undefined_method
     end
 
     private
