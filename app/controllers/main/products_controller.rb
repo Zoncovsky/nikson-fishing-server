@@ -1,7 +1,8 @@
 module Main
   class ProductsController < ApplicationController
     def show
-      @product = Product.find(123)
-    end
+          sleep 20
+          @product = Product.find_by(id: 123)
+        end
   end
 end
