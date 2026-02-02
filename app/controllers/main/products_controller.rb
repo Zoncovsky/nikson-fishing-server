@@ -1,7 +1,5 @@
-module Main
-  class ProductsController < ApplicationController
-    def show
-      @product = Product.find(123)
-    end
-  end
-end
+# Before:
+@product = Product.find(123)
+
+# After:
+@product = Product.find(params[:id])
