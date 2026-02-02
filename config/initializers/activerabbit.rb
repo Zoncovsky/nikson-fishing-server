@@ -2,7 +2,7 @@ if Rails.env.development?
   OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 end
 ActiveRabbit::Client.configure do |config|
-   config.api_key = '1ed8f38b589f25a9f22796812d6c83dd86b9e435a4490098649e39dfcaa02f09'
+   config.api_key = 'ae9c593fc25f86e6b66da40708a672c52dfb66953564643674053bae2ed02736'
 
   config.enable_performance_monitoring = true
   config.enable_n_plus_one_detection   = true
@@ -11,8 +11,8 @@ ActiveRabbit::Client.configure do |config|
   config.revision = ENV['APP_REVISION'] || `git rev-parse HEAD`.chomp
   config.disable_console_logs = false
   # config.api_url = "https://app.activerabbit.ai"
-  config.api_url = 'http://localhost:3000'
-  # config.api_url = 'https://e5ec6a09701f.ngrok-free.app'
+  # config.api_url = 'http://localhost:3000'
+  config.api_url = 'https://9dee32ba30fa.ngrok-free.app'
 
   config.ignore_404 = true
 end
