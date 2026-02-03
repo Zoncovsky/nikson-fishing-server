@@ -25,7 +25,7 @@ module Main
 
         flash[:notice] = t('order.created')
 
-        redirect_to root_path, flash: { notice: t('order.created') }
+        redirect_to test_root_path, flash: { notice: t('order.created') }
       else
         redirect_to cart_path, flash: { alert: @order.errors.full_messages.join(', ') }
       end
