@@ -19,7 +19,7 @@
             <tr>
               <td><%= link_to product.id, main_product_path(product) %></td>
               <td><%= product.name %></td>
-              <td><%= product.price %><%= I18n.t('main_page.currency') %></td>
+               <td><%= product.price.to_f %><%= I18n.t('main_page.currency') %></td>
               <td><%= product.category.name %></td>
             </tr>
           <% end %>
