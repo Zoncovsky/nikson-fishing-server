@@ -16,18 +16,10 @@ module Main
     def create
       @order = current_user.orders.build(order_params)
 
-      if params[:phone_number].present? && current_user.phone_number.blank?
-        current_user.update(phone_number: params[:phone_number])
-      end
+if @order.save
+        CreateOrderMailer.new_order(current_user, @order).deliver_later
 
-      if @order.save
-        CreateOrderMailer.new_order(current_user, order).deliver_later
-
-        flash[:notice] = t('order.created')
-
-        redirect_to root_path, flash: { notice: t('order.created') }
-      else
-        redirect_to cart_path, flash: { alert: @order.errors.full_messages.join(', ') }
+        flash[:notice] = t('order.created')        redirect_to cart_path, flash: { alert: @order.errors.full_messages.join(', ') }
       end
     end
 
