@@ -13,7 +13,7 @@ class CreateOrderMailer < ApplicationMailer
     @order_products = order.order_products
 
     @order_products_with_quantity = @products.map do |product|
-      order_product = @order_products.each { |op| op.product_id == product.id }
+      order_product = @order_products.find { |op| op.product_id == product.id }
       {
         product: product,
         quantity: order_product ? order_product.quantity : 0
