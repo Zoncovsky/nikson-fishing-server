@@ -9,6 +9,9 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
+  has_many :orders
+  has_many :order_products, through: :orders
+
   def self.ransackable_attributes(auth_object = nil)
     %w[created_at email encrypted_password first_name last_name id id_value phone_number remember_created_at reset_password_sent_at reset_password_token updated_at]
   end
