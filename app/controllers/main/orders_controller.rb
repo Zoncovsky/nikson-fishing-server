@@ -21,11 +21,11 @@ module Main
       end
 
       if @order.save
-        CreateOrderMailer.new_order(current_user, order).deliver_later
+        CreateOrderMailer.new_order(current_user, @order).deliver_later
 
         flash[:notice] = t('order.created')
 
-        redirect_to test_root_path, flash: { notice: t('order.created') }
+        redirect_to root_path, flash: { notice: t('order.created') }
       else
         redirect_to cart_path, flash: { alert: @order.errors.full_messages.join(', ') }
       end
