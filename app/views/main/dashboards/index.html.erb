@@ -24,10 +24,10 @@
             <% @new_arrivals.in_groups_of(5, false).each_with_index do |group, index| %>
               <div class="carousel-item <%= 'active' if index.zero? %>">
                 <div class="row row-cols-1 row-cols-md-5 g-3">
-                  <% group.each |product| %>
+                  <% group.each do |product| %>
                     <div class="col" data-controller="products" data-products-product-value="<%= product.to_json %>">
                       <div class="card shadow-sm h-100">
-                        <%= image_tag product.images.first, class: 'bd-placeholder-img card-img-top img-fluid', style: 'height: 201px; object-fit: cover;' %>
+                        <%= image_tag product.images, class: 'bd-placeholder-img card-img-top img-fluid', style: 'height: 201px; object-fit: cover;' %>
                         <div class="card-body d-flex flex-column">
                           <p class="card-text"><%= product.name %></p>
                           <p class="card-text"><%= product.price %> <%= I18n.t('main_page.currency') %></p>
