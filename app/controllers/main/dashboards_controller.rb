@@ -16,7 +16,7 @@ module Main
       1 / 0
     end
     def cart
-      nil.undefined_method
+      # Add your cart logic here
     end
 
     private
