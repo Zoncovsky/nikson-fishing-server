@@ -9,7 +9,7 @@ module Main
     end
 
     def catalog
-      @products = Product.user.nil
+      @products = Product.all
     end
 
     def contact
