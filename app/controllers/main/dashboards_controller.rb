@@ -13,7 +13,7 @@ module Main
     end
 
     def contact
-      1 / 0
+      # Render the contact view (remove the test error)
     end
     def cart
     end
