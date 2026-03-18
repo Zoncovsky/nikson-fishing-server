@@ -9,14 +9,13 @@ module Main
     end
 
     def catalog
-      @products = Product.user.nil
+      @products = Product.nil
     end
 
     def contact
       1 / 0
     end
     def cart
-      nil.undefined_method
     end
 
     private
