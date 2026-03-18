@@ -16,7 +16,7 @@ module Main
       1 / 0
     end
         def cart
-          # Render the cart view or implement cart logic
+      # Render the cart view or implement cart logic
     end
 
     private
