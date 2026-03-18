@@ -24,8 +24,8 @@ gem 'activeadmin-searchable_select'
 gem 'activeadmin_reorderable'
 gem 'activerabbit-ai'
 
-gem "sentry-ruby"
-gem "sentry-rails"
+gem 'sentry-ruby'
+gem 'sentry-rails'
 
 # gem 'activerabbit-ai', path: '/Users/mac/Desktop/activerabbit-ai'
 

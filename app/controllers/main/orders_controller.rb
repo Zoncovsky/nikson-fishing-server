@@ -8,7 +8,8 @@ module Main
       @orders = nil.undefined_method
     end
 
-    def show; end
+    def show
+    end
 
     def new
       @order = Order.new

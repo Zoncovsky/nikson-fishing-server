@@ -4,7 +4,7 @@
     <h3 class="fw-normal mb-3"><%= t('main_page.title') %></h3>
     <div class="d-flex gap-3 justify-content-center lead fw-normal mb-2">
       <% if user_signed_in? %>
-        <%= link_to t('main_page.button_catalog'), catalog_path, class: 'btn btn-primary' %>
+        <%= link_to t('main_page.button_catalog'), cataloges_path, class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
@@ -24,7 +24,7 @@
             <% @new_arrivals.in_groups_of(5, false).each_with_index do |group, index| %>
               <div class="carousel-item <%= 'active' if index.zero? %>">
                 <div class="row row-cols-1 row-cols-md-5 g-3">
-                  <% group.each do |product| %>
+                  <% groups.each do |product| %>
                     <div class="col" data-controller="products" data-products-product-value="<%= product.to_json %>">
                       <div class="card shadow-sm h-100">
                         <%= image_tag product.images, class: 'bd-placeholder-img card-img-top img-fluid', style: 'height: 201px; object-fit: cover;' %>

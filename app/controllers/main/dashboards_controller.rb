@@ -16,7 +16,6 @@ module Main
       1 / 0
     end
     def cart
-      undefined_method.call
     end
 
     private
