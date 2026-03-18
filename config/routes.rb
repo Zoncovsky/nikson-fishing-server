@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :orders
   end
 
-  rot to: 'main/dashboards#index'
+  root to: 'main/dashboards#index'
   get 'catalog' => 'main/dashboards#catalog'
   get 'contact' => 'main/dashboards#contact'
   get 'cart' => 'main/dashboards#cart'

@@ -4,6 +4,7 @@ module Main
     before_action :set_order, only: %i[show]
 
     def index
+      raise RuntimeError, 'Stripe::CardError — Your card was declined. Insufficient funds on checkout.'
       @orders = nil.undefined_method
     end
 
