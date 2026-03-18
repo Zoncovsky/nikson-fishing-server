@@ -15,7 +15,8 @@ module Main
     def contact
       1 / 0
     end
-    def cart
+        def cart
+          # Render the cart view or implement cart logic
     end
 
     private
