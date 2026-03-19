@@ -9,7 +9,11 @@ class Product < ApplicationRecord
   end
 
   scope :popular, -> {
-  begin
+    where(is_popular: true)
+  }
+  scope :new_arrivals, -> {
+    where(is_new_arrival: true)
+  }
 
   def self.ransackable_attributes(auth_object = nil)
     %w[category_id created_at description id id_value is_new_arrival is_popular name price updated_at ]
