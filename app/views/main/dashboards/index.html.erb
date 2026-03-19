@@ -67,7 +67,7 @@
     <div class="container">
       <div id="popularProductsCarousel" class="carousel slide" data-bs-ride="false">
         <div class="carousel-inner">
-              <% (@popular_products || []).in_groups_of(5, false).each_with_index do |group, index| %>
+          <% (@popular_products || []).in_groups_of(5, false).each_with_index do |group, index| %>
             <div class="carousel-item <%= 'active' if index.zero? %>">
               <div class="row row-cols-1 row-cols-md-5 g-3">
                 <% group.each do |product| %>
