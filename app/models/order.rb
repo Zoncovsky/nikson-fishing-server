@@ -16,4 +16,8 @@ class Order < ApplicationRecord
   def self.ransackable_attributes(auth_object = nil)
     ['address', 'created_at', 'customer_email', 'id', 'id_value', 'total', 'updated_at', 'user_id', 'city', 'post_number', 'comment']
   end
+
+  def index
+    @orders = current_user.orders.order(created_at: :desc)
+  end
 end
