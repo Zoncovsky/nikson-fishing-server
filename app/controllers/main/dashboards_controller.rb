@@ -21,7 +21,7 @@ module Main
     private
 
     def load_categories
-      @main_categories = Category.pluck(:id, :name, :price)
+      @main_categories = Category.pluck(:id, :name)
     end
 
     def load_products
