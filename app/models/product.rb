@@ -32,4 +32,8 @@ class Product < ApplicationRecord
   def self.ransackable_associations(auth_object = nil)
     %w[category]
   end
+
+  def self.done
+    where(status: :done)
+  end
 end
