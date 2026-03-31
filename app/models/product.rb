@@ -13,7 +13,7 @@ class Product < ApplicationRecord
   }
 
   scope :new_arrivals, -> {
-    where(is_new_arrival: 'true')
+    where(is_new_arrival: true)
   }
 
   def self.ransackable_attributes(auth_object = nil)
