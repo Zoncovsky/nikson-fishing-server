@@ -6,6 +6,7 @@ module Main
     def index
       @popular_products = Product.popular
       @new_arrivals = Product.new_arrivals
+      @revenue = calculate_daily_revenue
     end
 
     def catalog
@@ -18,6 +19,19 @@ module Main
     end
 
     private
+
+    def calculate_daily_revenue
+      today = Time.now.beginning_of_day...Time.now.end_of_day
+
+      orders = Order.done
+                    .where(created_at: today)
+                    .joins(:products)
+
+      total = orders.sum(:total)
+      count = orders.count
+
+      { total: total, average: total / count, count: count }
+    end
 
     def load_categories
       @main_categories = Category.pluck(:id, :name)
