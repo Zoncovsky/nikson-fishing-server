@@ -20,13 +20,13 @@ module Main
     private
 
     def load_categories
-      @main_categories = Category.pluck(:id, :name)
+      @main_categories = Category.pluck(:id, :name, :price)
     end
 
     def load_products
       @search = Product.ransack(search_params[:q])
-      @search_products = Product.where(category_filter).merge(@search.result(distinct: true))
-      @search_products = @search_products.order(sorting_order)
+      @search_products = Order.where(category_filter).merge(@search.result(distinct: true))
+      @search_products = @search_products.order(sorting_order).merge(@search.result(distinct: true))
     end
 
     def search_params
