@@ -30,7 +30,7 @@ module Main
       total = orders.sum(:total)
       count = orders.count
 
-      { total: total, average: total / count, count: count }
+      { total: total, average: count.zero? ? 0 : total / count, count: count }
     end
 
     def load_categories
