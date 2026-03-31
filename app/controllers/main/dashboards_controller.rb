@@ -7,6 +7,7 @@ module Main
       @popular_products = Product.popular
       @new_arrivals = Product.new_arrivals
       @revenue = calculate_daily_revenue
+      @top_products = Product.best_sellers.to_a
     end
 
     def catalog

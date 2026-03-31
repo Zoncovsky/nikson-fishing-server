@@ -16,6 +16,15 @@ class Product < ApplicationRecord
     where(is_new_arrival: true)
   }
 
+  scope :best_sellers, -> {
+    joins(:orders)
+      .merge(Order.done)
+      .group("products.id")
+      .select("products.*, COUNT(DISTINCT orders.id) as orders_count")
+      .order("orders_count DESC")
+      .limit(5)
+  }
+
   def self.ransackable_attributes(auth_object = nil)
     %w[category_id created_at description id id_value is_new_arrival is_popular name price updated_at ]
   end
