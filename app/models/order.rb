@@ -9,6 +9,8 @@ class Order < ApplicationRecord
 
   enum :status, { pending: 0, done: 1 }
 
+  scope :done, -> { where(status: :done) }
+
   def self.ransackable_associations(auth_object = nil)
     ['order_products', 'products', 'user']
   end
