@@ -20,6 +20,11 @@ class Product < ApplicationRecord
     %w[category_id created_at description id id_value is_new_arrival is_popular name price updated_at ]
   end
 
+
+  def popularity
+    # Calculate popularity based on order count or other metrics
+    order_products.count
+  end
   def self.ransackable_associations(auth_object = nil)
     %w[category]
   end
