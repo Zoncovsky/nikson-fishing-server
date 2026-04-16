@@ -56,4 +56,12 @@ module Main
       search_params[:sort].presence || 'created_at DESC'
     end
   end
+
+      @recent_contacts = Contact.includes(:responses)
+                                .where(created_at: 1.week.ago..)
+                                .limit(5)
+
+      # Use counter cache for stats
+      @contact_stats = ContactStat.first_or_create
+    end
 end
