@@ -29,7 +29,7 @@ module Main
                     .joins(:products)
 
       total = orders.sum(:total)
-      count = orders.count
+      count = orders.distinct.count
 
       { total: total, average: count.zero? ? 0 : total / count, count: count }
     end
