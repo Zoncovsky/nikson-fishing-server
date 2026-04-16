@@ -15,6 +15,7 @@ module Main
     end
 
     def contact
+      # Render the contact page
     end
     def cart
     end
