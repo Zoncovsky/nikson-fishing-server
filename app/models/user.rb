@@ -5,7 +5,7 @@ class User < ApplicationRecord
 
   has_many :orders, dependent: :destroy
 
-  after_create :password_complexity
+  validate :password_complexity
 
   validates :first_name, :last_name, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
@@ -27,10 +27,9 @@ class User < ApplicationRecord
                          email: access_token.info.email,
                          password: Devise.friendly_token[0, 20])
     end
-    user.first_name = access_token.info.name
     user.uid = access_token.uid
     user.provider = access_token.provider
-    user.save
+    user.save if user.changed?
 
     user
   end
@@ -38,6 +37,8 @@ class User < ApplicationRecord
   private
 
   def password_complexity
+    return if password.blank?
+
     unless password =~ /\A(?=.*[A-Z])(?=\S+$).{6,}\z/
       errors.add(:password, :invalid_format)
     end

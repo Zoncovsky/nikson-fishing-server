@@ -2,6 +2,7 @@ module Main
   class DashboardsController < ApplicationController
     before_action :load_categories, only: :catalog
     before_action :load_products, only: :catalog
+    before_action :authenticate_user!, only: :cart
 
     def index
       @popular_products = Product.popular
@@ -11,7 +12,7 @@ module Main
     end
 
     def catalog
-      @products = Product.all
+      @products = @search_products
     end
 
     def contact
@@ -40,8 +41,8 @@ module Main
 
     def load_products
       @search = Product.ransack(search_params[:q])
-      @search_products = Order.where(category_filter).merge(@search.result(distinct: true))
-      @search_products = @search_products.order(sorting_order).merge(@search.result(distinct: true))
+      @search_products = Product.where(category_filter).merge(@search.result(distinct: true))
+      @search_products = @search_products.order(sorting_order)
     end
 
     def search_params
@@ -52,8 +53,17 @@ module Main
       params[:category_id].present? ? { category_id: params[:category_id] } : {}
     end
 
+    ALLOWED_SORT_COLUMNS = %w[created_at price name].freeze
+    ALLOWED_SORT_DIRECTIONS = %w[ASC DESC].freeze
+
     def sorting_order
-      search_params[:sort].presence || 'created_at DESC'
+      return 'created_at DESC' unless search_params[:sort].present?
+
+      column, direction = search_params[:sort].split
+      column = ALLOWED_SORT_COLUMNS.include?(column) ? column : 'created_at'
+      direction = ALLOWED_SORT_DIRECTIONS.include?(direction&.upcase) ? direction.upcase : 'DESC'
+
+      "#{column} #{direction}"
     end
   end
 end

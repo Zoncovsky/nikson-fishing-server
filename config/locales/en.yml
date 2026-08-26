@@ -46,6 +46,7 @@ en:
     button_catalog: 'Go to catalog'
     popular_item: 'Popular products'
     new_products: 'New products'
+    view_details: 'View details'
     currency: 'UAH'
   product_page:
     category: 'Categories'

@@ -16,9 +16,4 @@ Rails.application.routes.draw do
   get 'catalog' => 'main/dashboards#catalog'
   get 'contact' => 'main/dashboards#contact'
   get 'cart' => 'main/dashboards#cart'
-  post 'checkout' => 'main/checkouts#create'
-
-  resources :categories, only: [:show] do
-    resources :products, only: [:index]
-  end
 end

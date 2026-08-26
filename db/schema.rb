@@ -84,6 +84,18 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_27_121033) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "pgbot_test", force: :cascade do |t|
+    t.text "name"
+    t.integer "value"
+    t.datetime "created_at", precision: nil, default: -> { "now()" }
+  end
+
+  create_table "pgrun_test_indexes", force: :cascade do |t|
+    t.text "email"
+    t.text "name"
+    t.index ["email"], name: "idx_pgrun_test_indexes_email"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"

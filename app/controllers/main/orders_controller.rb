@@ -22,9 +22,7 @@ module Main
       end
 
       if @order.save
-        CreateOrderMailer.new_order(current_user).deliver_later
-
-        flash[:notice] = t('order.created')
+        CreateOrderMailer.new_order(current_user, @order).deliver_later
 
         redirect_to root_path, flash: { notice: t('order.created') }
       else

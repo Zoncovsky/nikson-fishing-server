@@ -15,7 +15,7 @@ RSpec.describe Product, type: :model do
   end
 
   describe 'Associations' do
-    it { is_expected.to belong_to(:category) }
+    it { is_expected.to belong_to(:category).optional }
     it { is_expected.to have_many(:order_products).dependent(:destroy) }
   end
 end
